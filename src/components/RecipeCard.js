@@ -1,6 +1,7 @@
 import { AspectRatio, Box, Flex, Heading, HStack, Image, Stack, Text } from 'native-base';
 
-const RecipeCard = ({ title }) => {
+const RecipeCard = ({ title, desc, prep, cooking, img }) => {
+  console.log(img);
   return (
     <Box alignItems='center' style={{ marginTop: 14 }}>
       <Box
@@ -14,7 +15,7 @@ const RecipeCard = ({ title }) => {
           <AspectRatio w='100%' ratio={16 / 9}>
             <Image
               source={{
-                uri: 'https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg',
+                uri: img,
               }}
               alt='image'
             />
@@ -26,10 +27,7 @@ const RecipeCard = ({ title }) => {
               {title}
             </Heading>
           </Stack>
-          <Text fontWeight='400'>
-            Bengaluru (also called Bangalore) is the center of India's high-tech
-            industry. The city is also known for its parks and nightlife.
-          </Text>
+          <Text fontWeight='400'>{desc}</Text>
           <HStack alignItems='center' space={4} justifyContent='space-between'>
             <Flex>
               <Text
@@ -39,7 +37,7 @@ const RecipeCard = ({ title }) => {
                 }}
                 fontWeight='400'
               >
-                6 mins ago
+                Prep : {prep} min
               </Text>
               <Text
                 color='coolGray.600'
@@ -48,7 +46,7 @@ const RecipeCard = ({ title }) => {
                 }}
                 fontWeight='400'
               >
-                6 mins ago
+                Cooking : {cooking} min
               </Text>
             </Flex>
           </HStack>
