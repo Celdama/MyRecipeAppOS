@@ -1,7 +1,6 @@
 import { AspectRatio, Box, Flex, Heading, HStack, Image, Stack, Text } from 'native-base';
 
 const RecipeCard = ({ title, desc, prep, cooking, img }) => {
-  console.log(img);
   return (
     <Box alignItems='center' style={{ marginTop: 14 }}>
       <Box
@@ -30,22 +29,10 @@ const RecipeCard = ({ title, desc, prep, cooking, img }) => {
           <Text fontWeight='400'>{desc}</Text>
           <HStack alignItems='center' space={4} justifyContent='space-between'>
             <Flex>
-              <Text
-                color='coolGray.600'
-                _dark={{
-                  color: 'warmGray.200',
-                }}
-                fontWeight='400'
-              >
+              <Text color='coolGray.600' fontWeight='400'>
                 Prep : {prep} min
               </Text>
-              <Text
-                color='coolGray.600'
-                _dark={{
-                  color: 'warmGray.200',
-                }}
-                fontWeight='400'
-              >
+              <Text color='coolGray.600' fontWeight='400'>
                 Cooking : {cooking} min
               </Text>
             </Flex>

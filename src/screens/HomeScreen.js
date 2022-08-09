@@ -11,7 +11,7 @@ const HomeScreen = () => {
       desc: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit ut exercitationem laboriosam laborum, iusto ab, nulla',
       prep: 15,
       cooking: 2,
-      img: 'https://images.unsplash.com/photo-1475332363216-323c9b7f1e81?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1633&q=80',
+      img: 'https://experience-fresh.panasonic.eu/wp-content/uploads/2020/10/Recette-salade-cesar_enjoy-banner.jpg',
     },
     {
       id: 1,
@@ -30,13 +30,14 @@ const HomeScreen = () => {
         keyExtractor={({ id }) => id}
         data={recipes}
         renderItem={({ item }) => {
+          const { title, desc, prep, cooking, img } = item;
           return (
             <RecipeCard
-              title={item.title}
-              desc={item.desc}
-              prep={item.prep}
-              cooking={item.cooking}
-              img={item.img}
+              title={title}
+              desc={desc}
+              prep={prep}
+              cooking={cooking}
+              img={img}
             />
           );
         }}
