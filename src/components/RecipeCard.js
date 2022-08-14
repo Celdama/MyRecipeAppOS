@@ -35,8 +35,8 @@ const styles = StyleSheet.create({
   image: {
     height: 130,
     width: 250,
-    borderTopStartRadius: 4,
-    borderTopEndRadius: 4,
+    // borderTopStartRadius: 4,
+    // borderTopEndRadius: 4,
     // marginBottom: 5,
   },
   name: {

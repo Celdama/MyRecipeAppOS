@@ -4,8 +4,6 @@ import { withNavigation } from 'react-navigation';
 import RecipeCard from './RecipeCard';
 
 const RecipesList = ({ title, recipes, navigation }) => {
-  console.log(navigation);
-
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
@@ -16,7 +14,13 @@ const RecipesList = ({ title, recipes, navigation }) => {
         keyExtractor={(recipe) => recipe.id}
         renderItem={({ item }) => {
           return (
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('RecipeShow', {
+                  id: item.id,
+                });
+              }}
+            >
               <RecipeCard recipe={item} />
             </TouchableOpacity>
           );
