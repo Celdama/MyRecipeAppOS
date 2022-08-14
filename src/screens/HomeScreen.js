@@ -1,10 +1,10 @@
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import RecipesList from '../components/RecipesList';
-import useRecipe from '../hooks/useRecipe';
+import useRecipes from '../hooks/useRecipes';
 
 const HomeScreen = () => {
-  const [searchApi, recipes, errorMessage] = useRecipe();
+  const [searchApi, recipes, errorMessage] = useRecipes();
 
   const filterRecipesByPrice = (priceOne, priceTwo) => {
     return recipes.filter((recipe) => {
