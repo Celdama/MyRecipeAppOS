@@ -7,8 +7,8 @@ const RecipesList = ({ title, recipes, navigation }) => {
   console.log(navigation);
 
   return (
-    <View>
-      <Text>{title}</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>{title}</Text>
       <FlatList
         horizontal
         showsHorizontalScrollIndicator={false}
@@ -26,6 +26,16 @@ const RecipesList = ({ title, recipes, navigation }) => {
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    marginBottom: 10,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginLeft: 15,
+    marginBottom: 5,
+  },
+});
 
 export default withNavigation(RecipesList);
