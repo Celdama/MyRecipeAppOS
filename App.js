@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NativeBaseProvider } from 'native-base';
 
 import HomeScreen from './src/screens/HomeScreen';
+import RecipeShowScreen from './src/screens/RecipeShowScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -10,6 +11,7 @@ const MyStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name='Home' component={HomeScreen} />
+      <Stack.Screen name='Recipe Details' component={RecipeShowScreen} />
     </Stack.Navigator>
   );
 };
