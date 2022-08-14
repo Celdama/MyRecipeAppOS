@@ -1,6 +1,6 @@
 import { AspectRatio, Box, Flex, Heading, HStack, Image, Stack, Text } from 'native-base';
 
-const RecipeCard = ({ title, desc, prep, cooking, img }) => {
+const RecipeCard = ({ recipe }) => {
   return (
     <Box alignItems='center' style={{ marginTop: 14 }}>
       <Box
@@ -14,7 +14,7 @@ const RecipeCard = ({ title, desc, prep, cooking, img }) => {
           <AspectRatio w='100%' ratio={16 / 9}>
             <Image
               source={{
-                uri: img,
+                uri: `https://spoonacular.com/recipeImages/${recipe.id}-636x393.${recipe.imageType}`,
               }}
               alt='image'
             />
@@ -23,17 +23,17 @@ const RecipeCard = ({ title, desc, prep, cooking, img }) => {
         <Stack p='4' space={4}>
           <Stack space={2}>
             <Heading size='md' ml='-1'>
-              {title}
+              {recipe.title}
             </Heading>
           </Stack>
-          <Text fontWeight='400'>{desc}</Text>
+          <Text fontWeight='400'>{recipe.summary.substring(0, 100)}</Text>
           <HStack alignItems='center' space={4} justifyContent='space-between'>
             <Flex>
               <Text color='coolGray.600' fontWeight='400'>
-                Prep : {prep} min
+                Cooking : {recipe.readyInMinutes} min
               </Text>
               <Text color='coolGray.600' fontWeight='400'>
-                Cooking : {cooking} min
+                Serving : {recipe.servings} pers
               </Text>
             </Flex>
           </HStack>
