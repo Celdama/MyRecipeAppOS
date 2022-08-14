@@ -1,23 +1,10 @@
-import { useEffect, useState } from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
-import spoonacular from '../api/spoonacular';
 import RecipesList from '../components/RecipesList';
+import useRecipe from '../hooks/useRecipe';
 
 const HomeScreen = () => {
-  const [recipes, setRecipes] = useState([]);
-  const searchApi = async () => {
-    try {
-      const response = await spoonacular.get(`/random`);
-      setRecipes(response.data.recipes);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  useEffect(() => {
-    searchApi();
-  }, []);
+  const [searchApi, recipes, errorMessage] = useRecipe();
 
   const filterRecipesByPrice = (priceOne, priceTwo) => {
     return recipes.filter((recipe) => {
@@ -29,7 +16,7 @@ const HomeScreen = () => {
 
   return (
     <View>
-      {/* <AppBar title='MyRecipeApp' /> */}
+      {errorMessage ? <Text>{errorMessage}</Text> : null}
       <ScrollView>
         <RecipesList
           recipes={filterRecipesByPrice(0, 200)}
