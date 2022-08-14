@@ -1,27 +1,19 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NativeBaseProvider } from 'native-base';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
 import HomeScreen from './src/screens/HomeScreen';
-import RecipeShowScreen from './src/screens/RecipeShowScreen';
 
-const Stack = createNativeStackNavigator();
+const navigator = createStackNavigator(
+  {
+    Home: HomeScreen,
+    // RecipeShow: RecipeShowScreen,
+  },
+  {
+    initialRouteName: 'Home',
+    defaultNavigationOptions: {
+      title: 'Home',
+    },
+  }
+);
 
-const MyStack = () => {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen name='Home' component={HomeScreen} />
-      <Stack.Screen name='Recipe Details' component={RecipeShowScreen} />
-    </Stack.Navigator>
-  );
-};
-
-export default function App() {
-  return (
-    <NativeBaseProvider>
-      <NavigationContainer>
-        <MyStack />
-      </NavigationContainer>
-    </NativeBaseProvider>
-  );
-}
+export default createAppContainer(navigator);

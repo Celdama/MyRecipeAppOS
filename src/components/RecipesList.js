@@ -1,11 +1,11 @@
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { withNavigation } from 'react-navigation';
 
 import RecipeCard from './RecipeCard';
 
-const RecipesList = ({ title, recipes }) => {
-  recipes.map((recipe) => {
-    console.log(recipe.pricePerServing);
-  });
+const RecipesList = ({ title, recipes, navigation }) => {
+  console.log(navigation);
+
   return (
     <View>
       <Text>{title}</Text>
@@ -28,4 +28,4 @@ const RecipesList = ({ title, recipes }) => {
 
 const styles = StyleSheet.create({});
 
-export default RecipesList;
+export default withNavigation(RecipesList);

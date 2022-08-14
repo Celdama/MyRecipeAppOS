@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 
 import spoonacular from '../api/spoonacular';
-import AppBar from '../components/AppBar';
 import RecipesList from '../components/RecipesList';
 
 const HomeScreen = () => {
@@ -29,8 +28,8 @@ const HomeScreen = () => {
   };
 
   return (
-    <>
-      <AppBar title='MyRecipeApp' />
+    <View>
+      {/* <AppBar title='MyRecipeApp' /> */}
       <ScrollView>
         <RecipesList
           recipes={filterRecipesByPrice(0, 200)}
@@ -45,9 +44,9 @@ const HomeScreen = () => {
           title='Big Spender'
         />
       </ScrollView>
-    </>
+    </View>
   );
 };
-// const styles = StyleSheet.create({});
+const styles = StyleSheet.create({});
 
 export default HomeScreen;
