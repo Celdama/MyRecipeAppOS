@@ -25,7 +25,7 @@ const RecipeShowScreen = ({ navigation }) => {
         <Image
           style={styles.image}
           source={{
-            uri: `https://spoonacular.com/recipeImages/${recipe.id}-636x393.${recipe.imageType}`,
+            uri: `https://spoonacular.com/recipeImages/${id}-636x393.${recipe.imageType}`,
           }}
         />
       ) : null}
@@ -38,11 +38,10 @@ const styles = StyleSheet.create({
   container: {
     borderWidth: 1,
     borderColor: 'red',
-    // flex: 1,
   },
   image: {
-    width: 200,
-    height: 200,
+    width: '100%',
+    height: 260,
   },
 });
 
